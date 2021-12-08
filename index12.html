@@ -1,0 +1,120 @@
+
+<!--<!DOCTYPE html>
+<head>
+    <script src="https://cdn.botframework.com/botframework-webchat/latest/webchat.js"></script>
+</head>
+<body>
+  <div style="height: 60%; width: 40%; margin-top:5%; margin-left:10%" id="webchat" role="main"></div>
+  <script>
+     
+     // Set  the CSS rules.
+     const store = window.WebChat.createStore( {}, ( { dispatch } ) => next => async action => {
+        store.dispatch({
+          type: 'WEB_CHAT/SET_SEND_BOX',
+          payload: { text: 'You got this!'}
+        });
+      });
+     
+    window.WebChat.renderWebChat({
+      directLine: window.WebChat.createDirectLine({
+          token: 'aitxeoDshQM.HxxGkONCGfxbIMM0XvHabXzai0e03-NOQBYJ1admtMo'}),
+      store
+    }, document.getElementById('webchat'));
+    
+  </script>
+</body>-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PLM Nordic Bot</title> 
+    <!-- This styling is for the Web Chat demonstration purposes. It is recommended that style is moved to separate file for organization in larger projects -->
+    <style>
+      
+        body {
+            width: 25.55%;
+            margin-left:73%;
+            position: relative;
+            
+            }
+        
+        h1 {
+            
+            font-size: 18px;
+            font-family: Segoe UI;
+            color: #F0FFFF;
+            padding: 13px 0px 0px 20px;
+        }
+
+        #heading {
+            background-color: lightblue;
+            background-image: linear-gradient(to right, rgb(80, 204, 204), rgb(69, 174, 202));
+            height: 50px;
+            margin-top:60%;
+            margin-left:0.01%;
+        }
+        
+        div[role="form"]{
+            
+            border:1.5px solid transparent;
+        
+        }
+
+        #webchat {
+            position: fixed;
+            height: 40%;
+            width: 25%;
+            
+            }
+
+    </style>
+    <link rel="icon" href="C:/Users/siddh/Downloads/chatbot.png"/>
+</head>
+<body style="background-color:#F4F2F1;">
+    
+    <div>
+        <div id="heading">
+            <!-- Change the h1 text to change the bot name -->    
+            <h1>PLM Nordic Bot</h1>
+        </div>
+        <div  style = "border:2.0px solid transparent; width:25.3%; height:60%" id="webchat" role="main"></div>
+    </div>    
+
+  <script src="https://cdn.botframework.com/botframework-webchat/latest/webchat.js"></script>
+
+  <script>
+        const styleSetOptions = {
+            //backgroundColor: 'lightblue',
+            bubbleBackground: 'gainsboro',
+            bubbleFromUserBackground: '#87CEEB',
+           // Add styleOptions to customize Web Chat canvas
+           hideUploadButton: false,
+           bubbleFromUserBorderStyle: 'solid',
+           botAvatarInitials: 'SB',
+        botAvatarImage: 'https://avatars.hubspot.net/default-100'
+   
+        };
+        
+        
+        // Add your BOT ID below 
+        var BOT_ID = "40089055-7e7c-46a1-b9a5-29adec873171"; 
+        var theURL = "https://powerva.microsoft.com/api/botmanagement/v1/directline/directlinetoken?botId=" + BOT_ID;
+
+      fetch(theURL)
+            .then(response => response.json())
+            .then(conversationInfo => {
+                window.WebChat.renderWebChat(
+                    {
+                        directLine: window.WebChat.createDirectLine({
+                            token: 'aitxeoDshQM.HxxGkONCGfxbIMM0XvHabXzai0e03-NOQBYJ1admtMo',
+                        }),
+                       styleOptions: styleSetOptions
+                    },
+                    document.getElementById('webchat')
+                );
+            })
+            .catch(err => console.error("An error occurred: " + err));
+
+    </script>
+  </body>
+</html>
