@@ -1,92 +1,48 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>PLM Nordic Bot</title> 
-    <!-- This styling is for the Web Chat demonstration purposes. It is recommended that style is moved to separate file for organization in larger projects -->
-    <style>
-      
-        body {
-            width: 30%;
-            margin-left:38%;
-            position: relative;
-            margin-top: 7%;
+    <head>
+        <title>PLM Nordic Bot</title> 
+       
+        
+        
+        <style>
+            iframe{
+                
+                width: 25%; 
+                min-height: 500px; 
+                margin-left: 35%;
+                bubbleBackground: 'gainsboro';
             }
-        
-        h1 {
             
-            font-size: 18px;
-            font-family: Segoe UI;
-            color: #F0FFFF;
-            padding: 13px 0px 0px 20px;
-        }
-
-        #heading {
-          background-color: lightblue;
-          background-image: linear-gradient(to right, rgb(80, 204, 204), rgb(69, 174, 202));
-          height: 50px;
-          width: 100%;
-          
-          
-           }
-        div[role="form"]{
-            
-            border:1.5px solid transparent;
-        
-        }
-
-        #webchat {
-            position: fixed;
-            width: 35%;
-        }
-
-    </style>
-   
-</head>
-<body style="background-color:#F4F2F1;">
+            h1 {
+                
+                font-size: 18px;
+                font-family: Segoe UI;
+                color: #F0FFFF;
+                padding: 13px 0px 0px 20px;
+                
+                
+            }
     
-    <div>
-        <div id="heading">
-            <!-- Change the h1 text to change the bot name -->    
-            <h1>PLM Nordic Bot</h1>
+            #heading {
+                background-color: lightblue;
+                background-image: linear-gradient(to right, rgb(80, 204, 204), rgb(69, 174, 202));
+                height: 50px;
+                width: 25.5%;
+                margin-left: 35%;
+                border-radius: 20px;
+                -webkit-border-radius: 15px;
+                -o-border-radius: 90px;
+                 }
+        </style>
+       
+        <div> 
+            <div id="heading">
+                <h1>PLM Nordic Bot</h1>
+            </div>
         </div>
-        <div  style = "border:2.0px solid transparent; width:30%; height:60% " id="webchat" role="main"></div>
-    </div>    
-
-  <script src="https://cdn.botframework.com/botframework-webchat/latest/webchat.js"></script>
-
-  <script>
-        const styleSetOptions = {
-            //backgroundColor: 'lightblue',
-            bubbleBackground: 'gainsboro',
-            bubbleFromUserBackground: '#87CEEB',
-           // Add styleOptions to customize Web Chat canvas
-           hideUploadButton: false,
-           bubbleFromUserBorderStyle: 'solid',
-           botAvatarInitials: 'SB',
-        botAvatarImage: 'https://avatars.hubspot.net/default-100'
-   
-        };
-        
-        
-        // Add your BOT ID below 
-        var BOT_ID = "40089055-7e7c-46a1-b9a5-29adec873171"; 
-        var theURL = "https://powerva.microsoft.com/api/botmanagement/v1/directline/directlinetoken?botId=" + BOT_ID;
-
-      fetch(theURL)
-            .then(response => response.json())
-            .then(conversationInfo => {
-                window.WebChat.renderWebChat(
-                    {
-                        directLine: window.WebChat.createDirectLine({
-                            token: 'IOtlZHt0aLM.ZolMKft01btqJnyOUKSHK2Qy2D-vVVgII61i3ym2LAQ',
-                        }),
-                       styleOptions: styleSetOptions
-                    },
-                    document.getElementById('webchat')
-                );
-            })
-            .catch(err => console.error("An error occurred: " + err));
-
-    </script>
-  </body>
+        <iframe src='https://webchat.botframework.com/embed/smartbotplm-bot?s=IOtlZHt0aLM.ZolMKft01btqJnyOUKSHK2Qy2D-vVVgII61i3ym2LAQ'
+        frameBorder = "0" ></iframe>
+    </head>
 </html>
+
